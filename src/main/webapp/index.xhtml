@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Artikelanzeige</title>
+        <meta  name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8"/>
+        <link href="style.css" rel="stylesheet"/>
+    </h:head>
+    <h:body>
+        <div class="wrapper">
+            <header>
+                <h:form class="head">
+                    <h:commandLink action="index">
+                        <h:graphicImage value="img/logo.jpg" alt="Logo" />
+                    </h:commandLink>
+                </h:form>
+                <h1>Artikelliste</h1>
+                <div id="anschrift">
+                    <h:outputText value="#{anschrift.name}"/>
+                    <br/>
+                    <h:outputText value="#{anschrift.strasse} #{anschrift.hausnummer}"/>
+                    <br/>
+                    <h:outputText value="#{anschrift.plz} #{anschrift.ort}"/>
+                </div>
+            </header>
+            <div class="nav">
+                <h:link value="Zur Verwaltungsseite" outcome="artikelverwaltung" />
+            </div>
+            <h2>Übersicht über alle Artikel</h2>
+
+            <h:dataTable styleClass="artikel-tabelle" rowClasses="gerade, ungerade" var="einArtikel" value="#{shop.sortiment}">
+                <h:column>
+                    <f:facet name="header">Nr</f:facet>
+                    <h:outputText value="#{einArtikel.nr}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Name</f:facet>
+                    <h:outputText value="#{einArtikel.name}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Beschreibung</f:facet>
+                    <h:outputText value="#{einArtikel.beschreibung}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Bild</f:facet>
+                    <h:graphicImage url="#{einArtikel.bild}" height="170" title="Filzware"/>
+                </h:column>
+                <h:column>
+                <h:form>
+                    <h:commandLink action="#{shop.sortiment.remove(einArtikel)}">
+                        <img src="img/x.png" alt="löschen-button"/>
+                    </h:commandLink>
+                </h:form>
+                </h:column>
+            </h:dataTable>
+
+            <footer>
+                <p class="c">© 2020 Weronzha</p>
+            </footer>
+        </div>
+    </h:body>
+</html>
+

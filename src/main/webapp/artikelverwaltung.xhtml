@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Artikelverwaltung</title>
+        <meta charset="utf-8"/>
+        <link href="style.css" rel="stylesheet"/>
+    </h:head>
+    <h:body>
+        <div class="wrapper">
+            <header>
+            	<div class="head">
+	                <h:link outcome="index">
+	                    <h:graphicImage value="img/logo.jpg" alt="Logo" />
+	                </h:link>
+                </div>
+                <h1>Artikelverwaltung</h1>
+                <div id="anschrift">
+                    <h:outputText value="#{anschrift.name}"/>
+                    <br/>
+                    <h:outputText value="#{anschrift.strasse} #{anschrift.hausnummer}"/>
+                    <br/>
+                    <h:outputText value="#{anschrift.plz} #{anschrift.ort}"/>
+                </div>
+            </header>
+            <h2>Übersicht über alle Artikel</h2>
+
+            <h:form >
+                <h:commandLink value="zurueck" action="#{artikelController.zurueck()}" />
+            </h:form>
+            
+            <h:form >
+                <h:commandLink value="vor" action="#{artikelController.vor()}" />
+            </h:form>
+            
+            <h:form styleClass="main-form" >
+                <h:panelGrid columns="2" styleClass="inner">
+
+                    <h:outputLabel value="Nr: " for="nr" />
+                    <h:outputText id="nr" value="#{artikelController.artikel.nr}" />
+
+                    <h:outputLabel value="Name: " for="name" />
+                    <h:inputText id="name" value="#{artikelController.artikel.name}" size="40" required="true" >
+                        <p:ajax event="keyup" update="name" />
+                    </h:inputText>
+
+                    <h:outputLabel value="Beschreibung: " for="text" />
+                    <h:inputText id="text" value="#{artikelController.artikel.beschreibung}" size="40" />
+
+                    <h:outputLabel value="Bild-Datei: " for="bilddatei" />
+                    <h:inputText id="bilddatei" value="#{artikelController.artikel.bild}" size="40">
+                        <p:ajax event="keyup" update="bild" />
+                    </h:inputText> <br/>
+                    
+                    <p:selectOneMenu label="labelname" value="#{artikelController.artikel.bild}">
+                        <f:selectItem itemValue="img/filzschuhe.jpg" itemLabel="Filzschuhe" />
+                        <f:selectItem itemValue="img/handtasche.jpg" itemLabel="Handtasche" />
+                        <f:selectItem itemValue="img/hasen.png" itemLabel="Hasen" />
+                        <p:ajax event="change" update="bild" />
+                    </p:selectOneMenu>
+                    
+                    <h:outputLabel value="Bild: " for="bild" />
+                    <h:graphicImage id="bild" height="100" url="#{artikelController.artikel.bild}" />
+                    
+                    <h:outputLabel value="Verfügbar ab:" for="verfuegbarAb"/>
+                    <p:calendar id="verfuegbarAb" value="#{artikelController.artikel.verfuegbarAb}" pattern="dd.MM.yyyy" />
+                    
+
+                </h:panelGrid>
+            </h:form>
+            <p id="fussnote">Bitte beachten Sie: <br/> Diese Seite ist nur ein Entwurf!</p>
+            <footer>
+                <p class="c">© 2020 Weronzha</p>
+            </footer>
+        </div>
+    </h:body>
+</html>

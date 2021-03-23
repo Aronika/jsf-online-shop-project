@@ -1,0 +1,149 @@
+body {
+    font-family: Arial;
+    background-image: linear-gradient(90deg, transparent 25%, #d9f0c9),
+        linear-gradient(90deg, #d9f0c9, transparent 50%);
+}
+
+header {
+    height: 100px;
+    padding: 20px;
+    margin: 10px;
+    background-color: rgba(90, 190, 170, 0.1);
+    border-radius: 50px;
+}
+
+.head a img {
+    width: 150px;
+    margin-right: -150px;
+    border-radius: 50px;
+    position: static;
+    float: left;
+}
+
+#startseite {
+    display: block;
+}
+
+div.nav a {
+    display: block;
+    width: 200px;
+    height: 30px;
+    padding: 10px;
+    padding-top: 15px;
+    margin: 10px 40% 25px 40%;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    color: lightblue;
+    background-color: #d9f0c9;
+    border-radius: 25px;
+}
+
+div.nav a:active {
+    background-color: #c0f9ba;
+    color: lightseagreen;
+}
+
+div#anschrift {
+    max-width: 250px;
+    margin-top: -60px;
+    margin-left: 250px;
+    position: relative;
+    float: right;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+table.artikel-tabelle {
+    border-collapse: collapse;
+    margin: auto;
+    margin-top: 50px;
+    border: 5px solid #d9f3c9;
+    box-shadow: 0px 0px 7px #aaaaaa;
+    text-align: center;
+}
+
+th, td {
+    border: 3px solid #d9f3c9;
+    padding: 10px;
+    border-collapse: collapse;
+}  
+
+th {
+    background-color: #f0fff0;
+}
+
+tr.ungerade {
+  background-color: #9ee5b8;
+}
+
+tr.gerade {
+  background-color: #ade4df;
+}
+
+.main-form {
+    display: block;
+    width: 500px;
+    height: 700px;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.inner {
+    min-width: 500px;
+    min-height: 500px;
+}
+
+.inner td a {
+    display: block;
+    max-width: 100px;
+    max-height: 50px;
+    padding: 5px;
+    margin: 0 auto;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    color: darkturquoise;
+    background-color: #d9f0c9;
+    border-radius: 5px;
+}
+
+
+.inner td a:hover {
+    background-color: #d9ffd0;
+    color: lightseagreen;
+}
+
+.inner td a:active {
+    background-color: #c0f9ba;
+    color: lightseagreen;
+}
+
+p#fussnote {
+    margin: 10px auto;
+    font-size: 0.6em;
+}
+
+footer {
+    width: auto;
+    height: 100px;
+    margin-top: 15px;
+    margin-bottom: 0px;
+    padding: 10px;
+    background-color: rgba(110, 190, 170, 0.1);
+}
+
+p.c {
+    font-size: 10px;
+    color: gray;
+    text-align: center;
+    margin-top: 90px;
+}
+
+.wrapper {
+    min-width: 960px;
+    width: auto;
+    margin: 0 auto;
+}
